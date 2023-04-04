@@ -317,6 +317,7 @@ enum {
   EM_BPF = 247,           // Linux kernel bpf virtual machine
   EM_VE = 251,            // NEC SX-Aurora VE
   EM_CSKY = 252,          // C-SKY 32-bit processor
+  EM_HAZARD = 999,
 };
 
 // Object file classes.
@@ -582,6 +583,18 @@ enum {
   ODK_GP_GROUP = 9,   // GP group to use for text/data sections
   ODK_IDENT = 10,     // ID information
   ODK_PAGESIZE = 11   // Page size information
+};
+
+// Hazard Specific e_flags
+enum {
+  EF_HAZARD_NOREORDER = 0x00000001, // Don't reorder instructions
+  EF_HAZARD_PIC       = 0x00000002, // Position independent code
+  EF_HAZARD_ARCH_32   = 0x50000000, // HAZARD32 instruction set per linux not elf.h
+  EF_HAZARD_ARCH      = 0xf0000000  // Mask for applying EF_HAZARD_ARCH_ variant
+};
+
+enum {
+#include "ELFRelocs/Hazard.def"
 };
 
 // Hexagon-specific e_flags

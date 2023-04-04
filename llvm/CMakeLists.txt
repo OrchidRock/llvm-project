@@ -306,7 +306,6 @@ set(LLVM_ALL_TARGETS
   WebAssembly
   X86
   XCore
-  Hazard
   )
 
 # List of targets with JIT support:
