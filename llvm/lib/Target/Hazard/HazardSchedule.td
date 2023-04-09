@@ -1,0 +1,153 @@
+
+
+def ALU : FuncUnit;
+def IMULDIV : FuncUnit;
+
+def IIPseudo        : InstrItinClass;
+def IIAlu           : InstrItinClass;
+def II_ADD          : InstrItinClass;
+def II_ADDI         : InstrItinClass;
+def II_ADDIU        : InstrItinClass;
+def II_ADDU         : InstrItinClass;
+def II_SUB          : InstrItinClass;
+def II_SUBU         : InstrItinClass;
+def II_CLO          : InstrItinClass;
+def II_CLZ          : InstrItinClass;
+def II_SLT_SLTU     : InstrItinClass;
+def II_SLTI_SLTIU   : InstrItinClass;
+def II_AND          : InstrItinClass;
+def II_ANDI         : InstrItinClass;
+def II_OR           : InstrItinClass;
+def II_ORI          : InstrItinClass;
+def II_XOR          : InstrItinClass;
+def II_XORI         : InstrItinClass;
+def II_NOR          : InstrItinClass;
+def II_LUI          : InstrItinClass;
+def II_SLL          : InstrItinClass;
+def II_SLLV         : InstrItinClass;
+def II_SRA          : InstrItinClass;
+def II_SRAV         : InstrItinClass;
+def II_SRL          : InstrItinClass;
+def II_SRLV         : InstrItinClass;
+def II_LB           : InstrItinClass;
+def II_LBU          : InstrItinClass;
+def II_LH           : InstrItinClass;
+def II_LHU          : InstrItinClass;
+def II_LL           : InstrItinClass;
+def II_LW           : InstrItinClass;
+def II_LWL          : InstrItinClass;
+def II_LWR          : InstrItinClass;
+def II_SB           : InstrItinClass;
+def II_SH           : InstrItinClass;
+def II_SC           : InstrItinClass;
+def II_SW           : InstrItinClass;
+def II_SWL          : InstrItinClass;
+def II_SWR          : InstrItinClass;
+def II_J            : InstrItinClass;
+def II_JR           : InstrItinClass;
+def II_JAL          : InstrItinClass;
+def II_JALR         : InstrItinClass;
+def II_BEQ          : InstrItinClass;
+def II_BGEZ         : InstrItinClass;
+def II_BGEZAL       : InstrItinClass;
+def II_BGTZ         : InstrItinClass;
+def II_BLEZ         : InstrItinClass;
+def II_BLTZ         : InstrItinClass;
+def II_BLTZAL       : InstrItinClass;
+def II_BNE          : InstrItinClass;
+def II_MOVN         : InstrItinClass;
+def II_MOVZ         : InstrItinClass;
+def II_MFHI_MFLO    : InstrItinClass;
+def II_MTHI_MTLO    : InstrItinClass;
+def II_MFC0         : InstrItinClass;
+def II_MTC0         : InstrItinClass;
+def II_TEQ          : InstrItinClass;
+def II_TGE          : InstrItinClass;
+def II_TGEU         : InstrItinClass;
+def II_TLT          : InstrItinClass;
+def II_TLTU         : InstrItinClass;
+def II_TNE          : InstrItinClass;
+def II_TEQI         : InstrItinClass;
+def II_TGEI         : InstrItinClass;
+def II_TGEIU        : InstrItinClass;
+def II_TLTI         : InstrItinClass;
+def II_TLTIU        : InstrItinClass;
+def II_TNEI         : InstrItinClass;
+def II_SYSCALL      : InstrItinClass;
+def II_ERET         : InstrItinClass;
+
+
+def HazardGenericItineraries : ProcessorItineraries<[ALU, IMULDIV], [], [
+  InstrItinData<IIAlu           , [InstrStage<1, [ALU]>]>,
+  InstrItinData<II_ADD          , [InstrStage<1, [ALU]>]>,
+  InstrItinData<II_ADDI         , [InstrStage<1, [ALU]>]>,
+  InstrItinData<II_ADDIU        , [InstrStage<1, [ALU]>]>,
+  InstrItinData<II_ADDU         , [InstrStage<1, [ALU]>]>,
+  InstrItinData<II_SUB          , [InstrStage<1, [ALU]>]>,
+  InstrItinData<II_SUBU         , [InstrStage<1, [ALU]>]>,
+  InstrItinData<II_CLO          , [InstrStage<1, [ALU]>]>,
+  InstrItinData<II_CLZ          , [InstrStage<1, [ALU]>]>,
+  InstrItinData<II_SLT_SLTU     , [InstrStage<1, [ALU]>]>,
+  InstrItinData<II_SLTI_SLTIU   , [InstrStage<1, [ALU]>]>,
+  InstrItinData<II_AND          , [InstrStage<1, [ALU]>]>,
+  InstrItinData<II_ANDI         , [InstrStage<1, [ALU]>]>,
+  InstrItinData<II_OR           , [InstrStage<1, [ALU]>]>,
+  InstrItinData<II_ORI          , [InstrStage<1, [ALU]>]>,
+  InstrItinData<II_XOR          , [InstrStage<1, [ALU]>]>,
+  InstrItinData<II_XORI         , [InstrStage<1, [ALU]>]>,
+  InstrItinData<II_NOR          , [InstrStage<1, [ALU]>]>,
+  InstrItinData<II_LUI          , [InstrStage<1, [ALU]>]>,
+  InstrItinData<II_SLL          , [InstrStage<1, [ALU]>]>,
+  InstrItinData<II_SLLV         , [InstrStage<1, [ALU]>]>,
+  InstrItinData<II_SRA          , [InstrStage<1, [ALU]>]>,
+  InstrItinData<II_SRAV         , [InstrStage<1, [ALU]>]>,
+  InstrItinData<II_SRL          , [InstrStage<1, [ALU]>]>,
+  InstrItinData<II_SRLV         , [InstrStage<1, [ALU]>]>,
+  InstrItinData<II_LB           , [InstrStage<3, [ALU]>]>,
+  InstrItinData<II_LBU          , [InstrStage<3, [ALU]>]>,
+  InstrItinData<II_LH           , [InstrStage<3, [ALU]>]>,
+  InstrItinData<II_LHU          , [InstrStage<3, [ALU]>]>,
+  InstrItinData<II_LL           , [InstrStage<3, [ALU]>]>,
+  InstrItinData<II_LW           , [InstrStage<3, [ALU]>]>,
+  InstrItinData<II_LWL          , [InstrStage<3, [ALU]>]>,
+  InstrItinData<II_LWR          , [InstrStage<3, [ALU]>]>,
+  InstrItinData<II_SB           , [InstrStage<1, [ALU]>]>,
+  InstrItinData<II_SH           , [InstrStage<1, [ALU]>]>,
+  InstrItinData<II_SC           , [InstrStage<1, [ALU]>]>,
+  InstrItinData<II_SW           , [InstrStage<1, [ALU]>]>,
+  InstrItinData<II_SWL          , [InstrStage<1, [ALU]>]>,
+  InstrItinData<II_SWR          , [InstrStage<1, [ALU]>]>,
+  InstrItinData<II_J            , [InstrStage<1, [ALU]>]>,
+  InstrItinData<II_JAL          , [InstrStage<1, [ALU]>]>,
+  InstrItinData<II_JALR         , [InstrStage<1, [ALU]>]>,
+  InstrItinData<II_JR           , [InstrStage<1, [ALU]>]>,
+  InstrItinData<II_BEQ          , [InstrStage<1, [ALU]>]>,
+  InstrItinData<II_BGEZ         , [InstrStage<1, [ALU]>]>,
+  InstrItinData<II_BGEZAL       , [InstrStage<1, [ALU]>]>,
+  InstrItinData<II_BGTZ         , [InstrStage<1, [ALU]>]>,
+  InstrItinData<II_BLEZ         , [InstrStage<1, [ALU]>]>,
+  InstrItinData<II_BLTZ         , [InstrStage<1, [ALU]>]>,
+  InstrItinData<II_BLTZAL       , [InstrStage<1, [ALU]>]>,
+  InstrItinData<II_BNE          , [InstrStage<1, [ALU]>]>,
+  InstrItinData<II_MOVZ         , [InstrStage<1, [ALU]>]>,
+  InstrItinData<II_MOVN         , [InstrStage<1, [ALU]>]>,
+  InstrItinData<II_MFHI_MFLO    , [InstrStage<1, [IMULDIV]>]>,
+  InstrItinData<II_MTHI_MTLO    , [InstrStage<1, [IMULDIV]>]>,
+  InstrItinData<II_MTC0         , [InstrStage<2, [ALU]>]>,
+  InstrItinData<II_MFC0         , [InstrStage<2, [ALU]>]>,
+  InstrItinData<II_TEQ          , [InstrStage<1, [ALU]>]>,
+  InstrItinData<II_TGE          , [InstrStage<1, [ALU]>]>,
+  InstrItinData<II_TGEU         , [InstrStage<1, [ALU]>]>,
+  InstrItinData<II_TLT          , [InstrStage<1, [ALU]>]>,
+  InstrItinData<II_TLTU         , [InstrStage<1, [ALU]>]>,
+  InstrItinData<II_TNE          , [InstrStage<1, [ALU]>]>,
+  InstrItinData<II_TEQI         , [InstrStage<1, [ALU]>]>,
+  InstrItinData<II_TGEI         , [InstrStage<1, [ALU]>]>,
+  InstrItinData<II_TGEIU        , [InstrStage<1, [ALU]>]>,
+  InstrItinData<II_TLTI         , [InstrStage<1, [ALU]>]>,
+  InstrItinData<II_TLTIU        , [InstrStage<1, [ALU]>]>,
+  InstrItinData<II_TNEI         , [InstrStage<1, [ALU]>]>,
+  InstrItinData<II_SYSCALL      , [InstrStage<1, [ALU]>]>,
+  InstrItinData<II_ERET         , [InstrStage<1, [ALU]>]>,
+   
+]>;

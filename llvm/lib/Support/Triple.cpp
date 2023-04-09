@@ -738,26 +738,6 @@ static Triple::ObjectFormatType getDefaultFormat(const Triple &T) {
   case Triple::tcele:
   case Triple::thumbeb:
   case Triple::ve:
-  case Triple::msp430:
-  case Triple::nvptx64:
-  case Triple::nvptx:
-  case Triple::ppc64le:
-  case Triple::ppcle:
-  case Triple::r600:
-  case Triple::renderscript32:
-  case Triple::renderscript64:
-  case Triple::riscv32:
-  case Triple::riscv64:
-  case Triple::shave:
-  case Triple::sparc:
-  case Triple::sparcel:
-  case Triple::sparcv9:
-  case Triple::spir64:
-  case Triple::spir:
-  case Triple::tce:
-  case Triple::tcele:
-  case Triple::thumbeb:
-  case Triple::ve:
   case Triple::xcore:
     return Triple::ELF;
 
